@@ -3,9 +3,10 @@ package shortener
 import (
 	"crypto/sha256"
 	"fmt"
-	"github.com/itchyny/base58-go"
 	"math/big"
 	"os"
+	
+	"github.com/itchyny/base58-go"
 )
 
 func GenerateShortLink(initialLink string, userId string) string {
