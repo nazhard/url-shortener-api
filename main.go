@@ -3,7 +3,7 @@ package main
 import (
   "fmt"
   
-  "github.com/nazhard/url-shortener-api/handler"
+  "github.com/nazhard/url-shortener-api/handlers"
   "github.com/nazhard/url-shortener-api/store"
   "github.com/gin-gonic/gin"
 )
@@ -12,17 +12,17 @@ func main() {
   r := gin.Default()
   r.GET("/", func(c *gin.Context) {
     c.JSON(200, gin.H{
-      "message": "Welcome to the URL Shortener API",
       "create_url": "/shorten",
+      "message": "Welcome to the URL Shortener API",
     })
   })
   
   r.POST("/shorten", func(c *gin.Context) {
-    handler.CreateShortUrl(c)
+    handlers.CreateShortUrl(c)
   })
   
   r.GET("/:shortUrl", func(c *gin.Context) {
-    handler.HandleShortUrlRedirect(c)
+    handlers.HandleShortUrlRedirect(c)
   })
   
   // Note store initialization happens here
